@@ -1,0 +1,55 @@
+package com.deliverytechy.delivery_api.controller;
+
+import com.deliverytechy.delivery_api.model.Order;
+import com.deliverytechy.delivery_api.repository.OrderRepository;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.util.List;
+
+/**
+ * REST Controller for managing Order resources.
+ * Handles HTTP requests related to /api/orders.
+ */
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+
+    // Dependency injection of the OrderRepository for data access.
+    private final OrderRepository orderRepository;
+
+    /**
+     * Constructor for dependency injection. Spring provides the OrderRepository.
+     * @param orderRepository The data repository for Order entities.
+     */
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
+    /**
+     * Handles GET request to /api/orders.
+     * Retrieves all orders from the database.
+     * @return A list of all Order entities.
+     */
+    @GetMapping
+    public List<Order> list() {
+        return orderRepository.findAll();
+    }
+
+    /**
+     * Handles POST request to /api/orders.
+     * Creates a new Order based on the request body.
+     * @param order The Order object parsed from the JSON request body.
+     * @return A ResponseEntity with status 201 (Created) and the newly saved Order in the body.
+     */
+    @PostMapping
+    public ResponseEntity<Order> create(@RequestBody Order order) {
+        // Save the new order to the database
+        Order saved = orderRepository.save(order);
+        
+        // Return a 201 Created status with the URI of the new resource
+        // The URI is constructed using the ID generated upon saving.
+        return ResponseEntity.created(URI.create("/api/orders/" + saved.getId())).body(saved);
+    }
+}

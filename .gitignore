@@ -1,0 +1,43 @@
+# Build output
+target/
+bin/
+build/
+
+# Maven Wrapper
+# Recomenda-se manter o .jar para que o mvnw funcione imediatamente, 
+# mas manteremos ignorado conforme sua estrutura anterior se preferir.
+
+# Documentation and Help
+HELP.md
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+
+### VS Code ###
+.vscode/
+
+### Logs & OS ###
+*.log
+.DS_Store
+Thumbs.db
+
+### Local Configuration ###
+# Ignorar configurações locais que podem conter senhas
+src/main/resources/application-local.properties
+.env
+docker-compose.override.yml

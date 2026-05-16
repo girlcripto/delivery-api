@@ -1,0 +1,4 @@
+1. Automação Nativa: Configurando Tarefas no Terminal do VS Code
+Para automatizar a execução do Módulo 1 (e dos próximos) sem ter que digitar comandos longos no terminal toda vez, utilizamos o mecanismo de Tasks do VS Code.
+
+Na raiz do seu projeto delivery-api, crie uma pasta chamada .vscode e, dentro dela, um arquivo tasks.json. Cole a seguinte estrutura configurada para o ambiente Java/Maven e Git:

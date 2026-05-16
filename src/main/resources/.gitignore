@@ -1,0 +1,16 @@
+# Artefatos de Compilação do Maven
+target/
+*.egg-info/
+
+# Configurações do Visual Studio Code e IDEs
+.vscode/
+.settings/
+.classpath
+.project
+*.factorypath
+
+# Arquivos de Cache e Executáveis Globais
+*.jar
+*.war
+*.class
+.DS_Store
